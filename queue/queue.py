@@ -2,13 +2,17 @@
 import json
 
 
-class queue:
+class Queue:
     """Очередь представляется в качестве линейного списка,
      в котором добавление/удаление элементов идет строго с соответствующих его концов."""
 
-    def __init__(self, list_elements):
-        if isinstance(list_elements, list):
-            self.list_elements = list_elements
+    def __init__(self, elem_source):
+        if elem_source is None:
+            self.list_elements = []
+        elif isinstance(elem_source, list):
+            self.list_elements = elem_source
+        elif isinstance(elem_source, Queue):
+            self.list_elements = elem_source.list_elements.copy()
 
     def __str__(self):
         """Строковое представление очереди"""
@@ -24,10 +28,7 @@ class queue:
 
     def dequeue(self):
         """Удаление из очереди"""
-        res = ""
-        while len(self.list_elements) > 0:
-            res += f'{self.list_elements.pop(0)} покинул очередь\n'
-        return res
+        return self.list_elements.pop(0)
 
     def save(self, filename):
         """сохраняет объект в JSON-файл filename"""
@@ -39,5 +40,5 @@ class queue:
         res = []
         with open(filename, 'r', encoding='utf-8') as ld:
             res = json.loads(ld.read())
-        return queue(res)
+        return Queue(res)
 
