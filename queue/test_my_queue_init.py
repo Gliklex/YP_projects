@@ -1,4 +1,4 @@
-from queue import *
+from my_queue import *
 import pytest
 
 q = Queue([11, 12])

@@ -1,4 +1,4 @@
-from queue import *
+from my_queue import *
 import pytest
 
 element_list = [(1, "[1] - очередь"), (123, "[123] - очередь"), ([1, 2, 3], "[[1, 2, 3]] - очередь")]

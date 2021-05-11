@@ -1,4 +1,4 @@
-from queue import *
+from my_queue import *
 import pytest
 
 que_list = [(Queue([]), "[] - пустая очередь"), (Queue([1, 2, 3]), "[1, 2, 3] - очередь")]
