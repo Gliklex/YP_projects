@@ -13,6 +13,8 @@ class Queue:
             self.list_elements = elem_source
         elif isinstance(elem_source, Queue):
             self.list_elements = elem_source.list_elements.copy()
+        else:
+            raise TypeError("Неверный тип")
 
     def __str__(self):
         """Строковое представление очереди"""
@@ -23,6 +25,8 @@ class Queue:
 
     def enqueue(self, element):
         """Добавление элемента в очередь"""
+        if isinstance(element, Queue):
+            raise ValueError("Очередь не может быть элементом очереди")
         self.list_elements.append(element)
         return f'{element} добавлен в очередь'
 
