@@ -1,2 +1,5 @@
-queue/venv/*
+task_10_05_01/venv*
+task_10_05_01/.pytest_cache/*
+task_10_05_02/venv*
+task_10_05_02/.pytest_cache/*
 .idea/*
