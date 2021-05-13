@@ -6,7 +6,7 @@ class Queue:
     """Очередь представляется в качестве линейного списка,
      в котором добавление/удаление элементов идет строго с соответствующих его концов."""
 
-    def __init__(self, elem_source):
+    def __init__(self, elem_source=None):
         if elem_source is None:
             self.list_elements = []
         elif isinstance(elem_source, list):
@@ -15,6 +15,9 @@ class Queue:
             self.list_elements = elem_source.list_elements.copy()
         else:
             raise TypeError("Неверный тип")
+
+    def __repr__(self):
+        return self.__str__()
 
     def __str__(self):
         """Строковое представление очереди"""
