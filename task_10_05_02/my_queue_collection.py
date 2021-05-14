@@ -45,7 +45,3 @@ class QueueCollection:
             res = json.loads(ld.read())
         return QueueCollection(res)
 
-
-art = QueueCollection([Queue([1, 2, 3])])
-art.add(Queue([1]))
-print(art)

@@ -31,4 +31,3 @@ class TheGelPen(PaintingObject):
     def __init__(self):
         super().__init__("The Gel Pen")
 
-print(TheGelPen().write(" GHbdf"))
