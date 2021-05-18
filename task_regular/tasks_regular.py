@@ -34,31 +34,31 @@ def match_3(string):
         raise TypeError("Неверный тип аргумента")
 
 
-def match_4(string):#!
+def match_4(string):
     """Находит строки по шаблону:
        строка 'ab' повторяется 1 или более раз
        Возвращает лист найденных значений, а на вход принимает строку."""
-    pattern = r"(?:ab)+"
+    pattern = r"((?:ab)+)(?:\s|$)"
     if isinstance(string, str):
         return re.findall(pattern, string)
     else:
         raise TypeError("Неверный тип аргумента")
 
 
-def match_5(string):
+def match_5(string):#!
     """Находит строку 2+3, не захватив остальные.
        Возвращает лист найденных значений, а на вход принимает строку."""
-    pattern = r"2\+3"
+    pattern = r"\b2\+3\b"
     if isinstance(string, str):
         return re.findall(pattern, string)
     else:
         raise TypeError("Неверный тип аргумента")
 
 
-def match_6(string):
+def match_6(string):#!
     """Находит строки 2+3, 2++3, 2+++3, не захватив остальные (+ может быть любое количество).
         Возвращает лист найденных значений, а на вход принимает строку."""
-    pattern = r"2\++3"
+    pattern = r"\b2\++3\b"
     if isinstance(string, str):
         return re.findall(pattern, string)
     else:
@@ -119,7 +119,7 @@ def match_11(string):
         raise TypeError("Неверный тип аргумента")
 
 
-def match_12(string):   #!
+def match_12(string):
     """Находит содержимое всех конструкций /...\\
     Возвращает лист найденных значений, а на вход принимает строку."""
     pattern = r'/(.+?)\\'
@@ -140,18 +140,16 @@ def match_13(year):
         return False
 
 
-def match_14(string):
+def match_14(string):#!
     """Возвращает True,
      если переданная строка является корректным временем вида '9.59 am', '12.30 pm'."""
     pattern = \
-        r"1[0-1]\.[0-5][0-9]\sam|[0-9]\.[0-5][0-9]\sam|[1-2][2-3|0]\.[0-5][0-9]\spm|1[2-9]\.[0-5][0-9]\spm|24\.00 pm"
+        r"^12\.[0-5][0-9]\s(?:am|pm)|1[0-1]\.[0-5][0-9]\s(?:am|pm)|[0-9]\.[0-5][0-9]\s(?:am|pm)$"
     if isinstance(string, str):
-        res_list = re.findall(pattern, string)
-        if string in res_list:
-            return True
-        else:
+        result = re.match(pattern, string)
+        if result is None:
             return False
+        elif result.group(0):
+            return True
     else:
         raise TypeError("Неверный тип аргумента")
-
-

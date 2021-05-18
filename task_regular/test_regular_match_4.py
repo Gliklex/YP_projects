@@ -4,8 +4,8 @@ import pytest
    строка 'ab' повторяется 1 или более раз
    Возвращает лист найденных значений, а на вход принимает строку."""
 
-string_list = [('ab abab abab abababab abea', ['ab', 'abab', 'abab', 'abababab', 'ab']),
-               ('ab abab abab abababab abea ab ba', ['ab', 'abab', 'abab', 'abababab', 'ab', 'ab']),
+string_list = [('ab abab abab abababab abea', ['ab', 'abab', 'abab', 'abababab']),
+               ('ab abab abab abababab abea ab ba', ['ab', 'abab', 'abab', 'abababab', 'ab']),
                ('eara orba barbrarba', [])]
 
 

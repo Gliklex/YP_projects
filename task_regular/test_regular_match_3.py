@@ -6,7 +6,8 @@ import pytest
 
 string_list = [('aa aba abba abbba abca abea', ['aba', 'abba', 'abbba']),
                ('aa aba abba abbbbbba abbba abca abea', ['aba', 'abba', 'abbbbbba', 'abbba']),
-               ('aa aza arba arbba arbca abea', [])]
+               ('aa aza arba arbba arbca abea', []),
+               ('', [])]
 
 
 @pytest.mark.parametrize("string, result", string_list)
